@@ -13,13 +13,3 @@ public class ClassesANDobjects {
     
 }
 
-public class Vains{
-
-    public static void main(String[] args) {
-        // create object
-    ClassesANDobjects sportsBicycle = new ClassesANDobjects();
-
-    // access field and method
-    sportsBicycle.braking();
-    }
-}
