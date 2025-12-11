@@ -10,6 +10,11 @@ public class ClassesANDobjects {
         System.out.println("Working of Braking");
     }
 
+    // behavior or method
+    public void brakinsg() {
+        System.out.println("Working of Braking");
+    }
+   
     
 }
 
