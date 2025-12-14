@@ -15,6 +15,12 @@ public class ClassesANDobjects {
         System.out.println("Working of Braking");
     }
 
+    // create a method to change gear
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Gear changed to: " + gear);
+    }
+
     // Main method: creates an object and demonstrates usage
     public static void main(String[] args) {
         // Creating an object (instance) of the class
@@ -25,6 +31,11 @@ public class ClassesANDobjects {
         
         // Accessing a field of the object
         System.out.println("Gear of Bike: " + bike.gear);
+
+        // Changing the gear using the method
+        bike.changeGear(3);
+
+        
     }
 }
 
