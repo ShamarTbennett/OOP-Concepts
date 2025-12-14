@@ -1,41 +1,63 @@
 package javaOOP;
 
 public class ClassesANDobjects {
-    
-    // State (field): represents the gear of the bike
-    private int gear = 5;
 
-    // Behavior (method): simulates braking
-    public void braking() {
-        System.out.println("Working of Braking");
+    // Fields (state)
+    private String make;
+    private String model;
+    private int year;
+    private int speed;
+
+    // Constructor (initializes the object)
+    public ClassesANDobjects(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.speed = 0; // Start at 0 speed
     }
 
-    // Another method (note: there's a typo in "brakinsg" - it should be "braking")
-    public void brakinsg() {
-        System.out.println("Working of Braking");
+    // Method to accelerate
+    public void accelerate(int increment) {
+        speed += increment;
+        System.out.println(make + " " + model + " accelerated to " + speed + " km/h");
     }
 
-    // create a method to change gear
-    public void changeGear(int newGear) {
-        gear = newGear;
-        System.out.println("Gear changed to: " + gear);
+    // Method to brake
+    public void brake(int decrement) {
+        speed -= decrement;
+        if (speed < 0) speed = 0;
+        System.out.println(make + " " + model + " slowed down to " + speed + " km/h");
     }
 
-    // Main method: creates an object and demonstrates usage
+    // Getter for speed
+    public int getSpeed() {
+        return speed;
+    }
+
+    // Method to display car info
+    public void displayInfo() {
+        System.out.println("Car: " + year + " " + make + " " + model + ", Current Speed: " + speed + " km/h");
+    }
+
+    // Main method: demonstrates creating objects and using them
     public static void main(String[] args) {
-        // Creating an object (instance) of the class
-        ClassesANDobjects bike = new ClassesANDobjects();
-        
-        // Calling a method on the object
-        bike.braking();
-        
-        // Accessing a field of the object
-        System.out.println("Gear of Bike: " + bike.gear);
+        // Creating objects (instances) of the class
+        ClassesANDobjects car1 = new ClassesANDobjects("Toyota", "Camry", 2020);
+        ClassesANDobjects car2 = new ClassesANDobjects("Honda", "Civic", 2019);
 
-        // Changing the gear using the method
-        bike.changeGear(3);
+        // Using methods on the objects
+        car1.displayInfo();
+        car1.accelerate(50);
+        car1.brake(20);
+        car1.displayInfo();
 
-        
+        System.out.println(); // Blank line
+
+        car2.displayInfo();
+        car2.accelerate(30);
+        car2.accelerate(40);
+        car2.brake(10);
+        car2.displayInfo();
     }
 }
 
