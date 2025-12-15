@@ -1,4 +1,4 @@
-package javaOOP;
+package javaOOP.objectsAndClasses;
 
 public class ClassesANDobjects {
 
