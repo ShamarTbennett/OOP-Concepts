@@ -1,5 +1,6 @@
 package javaOOP.informationhiding;
 
+import javaOOP.informationhiding.TransponderUnit;;
 public class ExpermentalSmartPowerMeter{
 
     private String serialNumeber;
