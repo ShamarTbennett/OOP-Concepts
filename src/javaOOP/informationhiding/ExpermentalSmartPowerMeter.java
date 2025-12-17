@@ -1,6 +1,7 @@
 package javaOOP.informationhiding;
 
-import javaOOP.informationhiding.TransponderUnit;;
+//import javaOOP.informationhiding.TransponderUnit;
+
 public class ExpermentalSmartPowerMeter{
 
     private String serialNumeber;
@@ -33,7 +34,9 @@ public class ExpermentalSmartPowerMeter{
     }
 
     public void display(){
-
+        System.out.println("This meter's serial number is " + serialNumeber );
+        System.out.println("Electricity consumption is " +   electricityConsumption);
+        System.out.println("Total transpondors online is " + transponder.getTotalUnits() + "\n");
     }
 
     public void setSerialNumber(String sNum){

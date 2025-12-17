@@ -29,7 +29,7 @@ public class TransponderUnit {
     }
 
     public void display(){
-
+        System.out.println("The number of units on the grid is " + totalUnits);
     }
 
     public void setTotalunits(int units){
