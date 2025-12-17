@@ -24,7 +24,7 @@ public class ExpermentalSmartPowerMeter{
     public ExpermentalSmartPowerMeter(ExpermentalSmartPowerMeter ex){
         serialNumeber = ex.serialNumeber;
         electricityConsumption = ex.electricityConsumption;
-        transponder = ex.transponder;
+        transponder.setTotalunits(ex.transponder.getTotalUnits());
     }
 
     public void increment(){
