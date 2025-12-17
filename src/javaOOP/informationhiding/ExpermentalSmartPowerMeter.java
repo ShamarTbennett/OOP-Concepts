@@ -28,7 +28,7 @@ public class ExpermentalSmartPowerMeter{
     }
 
     public void increment(){
-
+        ++electricityConsumption;
     }
 
     public void display(){
