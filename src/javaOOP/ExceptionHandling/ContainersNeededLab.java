@@ -1,6 +1,7 @@
 package javaOOP.ExceptionHandling;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ContainersNeededLab {
@@ -19,52 +20,77 @@ public class ContainersNeededLab {
         System.out.println("Now in Demonstrate()");
 
         while ( true ){
+            try {
+                WholesaleSize = EnterSizeOfWholesaleContainer();
+                RetailSize = EnterSizeOfRetailContainer();
+                NumberRetailNeeded = CalculateRetailContainersNeeded(WholesaleSize, RetailSize);
+                System.out.println("Back in Demonstrate()");
+                System.out.println("The number of retail containers" + " needed is " +
+                        NumberRetailNeeded);
+                System.out.print("Perform another calculation?" + " [y/n] ");
+                
+                ans = ' ';
 
-            WholesaleSize = EnterSizeOfWholesaleContainer();
-            RetailSize = EnterSizeOfRetailContainer();
-            NumberRetailNeeded = CalculateRetailContainersNeeded(WholesaleSize, RetailSize);
-            System.out.println("Back in Demonstrate()");
-            System.out.println("The number of retail containers" + " needed is " +
-                    NumberRetailNeeded);
-            System.out.print("Perform another calculation?" + " [y/n] ");
-            
-            ans = ' ';
-
-            while (ans != 'y' && ans != 'Y' && ans != 'n' && ans != 'N')
-                ans = (char) System.in.read();
-            System.out.println(" ");
-            if (ans == 'n' || ans == 'N')
-                break;
+                while (ans != 'y' && ans != 'Y' && ans != 'n' && ans != 'N')
+                    ans = (char) System.in.read();
+                System.out.println(" ");
+                if (ans == 'n' || ans == 'N')
+                    break;
+                
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
         }
     }
 
     //enters the size of the wholesale container
     public int EnterSizeOfWholesaleContainer(){
-        Scanner in = new Scanner(System.in);
-        int size;
-        System.out.println("Now in EnterSizeOfWholesaleContainer()");
-        System.out.println("Enter the size of the wholesale" + " container - ");
-        size = in.nextInt();
-        System.out.println(" ");
+        int size = 0;
+        try {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Now in EnterSizeOfWholesaleContainer()");
+            System.out.println("Enter the size of the wholesale" + " container - ");
+            size = in.nextInt();
+            System.out.println(" ");
+            if(size < 1){
+                System.out.println("Size Of Wholesale Container Input must be grate tha 0.");
+                in.close();
+                return 0;
+            }
+            in.close();
+            
+        } catch (InputMismatchException e) {
+            System.out.println(e + " Input must be a number (1, 2, 3.....).");
+        }catch (ArithmeticException e) {
+            System.out.println("Size Of Wholesale Container Input must be grate tha 0.");
+        }          
 
         return size;
     }
 
     //enters the size of the retail container
     public int EnterSizeOfRetailContainer(){
-        Scanner in = new Scanner(System.in);
-        int size;
-        System.out.println("Now in EnterSizeOfRetailContainer()");
-        System.out.println("Enter the size of the retail container - ");
-        size = in.nextInt();
-        System.out.println(" ");
+        int size = 0;
+        try {
+             Scanner in = new Scanner(System.in);
+            System.out.println("Enter the size of the retail container:");
+            size = in.nextInt();
 
+            if (size <= 0) {
+                throw new IllegalArgumentException("Size must be greater than 0.");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
         return size;
     }
 
     //calculates the number of retail containers needed
     // and returns the result
-    public int CalculateRetailContainersNeeded(int wcSize, int rcSize){
+    public int CalculateRetailContainersNeeded(int wcSize, int rcSize)throws ArithmeticException{
         System.out.println("Now in CalculateRetailContainersNeeded()");
 
         return wcSize / rcSize;
