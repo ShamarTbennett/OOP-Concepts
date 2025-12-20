@@ -38,53 +38,52 @@ public class ContainersNeededLab {
                     break;
                 
             } catch (Exception e) {
-                // TODO: handle exception
+                System.err.println(e);
             }
         }
+        
     }
 
     //enters the size of the wholesale container
     public int EnterSizeOfWholesaleContainer(){
         int size = 0;
+        Scanner in = new Scanner(System.in);
         try {
-            Scanner in = new Scanner(System.in);
+           
             System.out.println("Now in EnterSizeOfWholesaleContainer()");
             System.out.println("Enter the size of the wholesale" + " container - ");
             size = in.nextInt();
+            
             System.out.println(" ");
-            if(size < 1){
-                System.out.println("Size Of Wholesale Container Input must be grate tha 0.");
-                in.close();
-                return 0;
+            if(size <= 0){
+                throw new IllegalArgumentException("Size Of Wholesale Container Input must be grate tha 0.");
             }
-            in.close();
             
         } catch (InputMismatchException e) {
             System.out.println(e + " Input must be a number (1, 2, 3.....).");
-        }catch (ArithmeticException e) {
-            System.out.println("Size Of Wholesale Container Input must be grate tha 0.");
-        }          
-
+        }
+        //in.close();
         return size;
     }
 
     //enters the size of the retail container
     public int EnterSizeOfRetailContainer(){
         int size = 0;
+        Scanner in = new Scanner(System.in);
         try {
-             Scanner in = new Scanner(System.in);
+            
             System.out.println("Enter the size of the retail container:");
             size = in.nextInt();
 
             if (size <= 0) {
+               
                 throw new IllegalArgumentException("Size must be greater than 0.");
             }
-
+            
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
         }
+        //in.close();
         return size;
     }
 
@@ -105,5 +104,6 @@ public class ContainersNeededLab {
         X.Demonstrate();
 
         System.out.println("Returned from Demonstrate()," + "  now back in main()");
+        
     }
 }
