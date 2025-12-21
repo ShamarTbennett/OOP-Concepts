@@ -60,7 +60,7 @@ public class ContainersNeededLab {
             }
             
         } catch (InputMismatchException e) {
-            System.out.println(e + " Input must be a number (1, 2, 3.....).");
+            System.out.println("Invalid input must be a number (1, 2, 3.....).");
         }
         //in.close();
         return size;
