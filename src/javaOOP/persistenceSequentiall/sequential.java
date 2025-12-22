@@ -62,13 +62,13 @@ public class sequential {
             System.out.println("Enter user name to search database:==>  ");
             name = input.nextLine();
 
-            while(inFileStream.hasNext()){
+            while(inFileStream.hasNext()){ //check each line and pulls the different sections out tuntil it reaches the end of teh file or the user is found
                 this.userName = inFileStream.next();
                 this.userId = inFileStream.nextInt();
                 this.password = inFileStream.next();
 
-                if(userName.equals(name)){
-                    DislayUser();
+                if(userName.equals(name)){ //after they are taken out it compares each user name in the file with that been entered
+                    DislayUser(); //if it is the same it calls the display method and exit
                     return;
                 }
                 
