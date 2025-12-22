@@ -49,7 +49,7 @@ public class sequential {
 
 
     public void Retrieve(){
-
+        
     }
 
     public void Dislay(){
