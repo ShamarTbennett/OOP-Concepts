@@ -1,7 +1,11 @@
 package javaOOP.persistenceSequentiall;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class sequential {
     
@@ -49,11 +53,47 @@ public class sequential {
 
 
     public void Retrieve(){
-        
+        String name;
+        Scanner input = null;
+        Scanner inFileStream = null;
+        try{
+            input = new Scanner(System.in);
+            inFileStream = new Scanner(new File("user.txt"));
+            System.out.println("Enter user name to search database:==>  ");
+            name = input.nextLine();
+
+            while(inFileStream.hasNext()){
+                this.userName = inFileStream.next();
+                this.userId = inFileStream.nextInt();
+                this.password = inFileStream.next();
+
+                if(userName.equals(name)){
+                    DislayUser();
+                    return;
+                }
+                
+            }
+            System.out.print("User " + name + " was not found");
+            this.userName = "john";
+            this.userId = 0;
+            this.password = "12345";
+            
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter a string");
+            //e.printStackTrace();
+        }catch (FileNotFoundException e) {
+            System.out.println("File could not be found: " + e.getMessage());
+            //e.printStackTrace();
+        }
     }
 
-    public void Dislay(){
-
+    public void DislayUser(){
+        System.out.println("User Name: " + userName +
+                            "\nUser ID:  " + userId +
+                            "\nPassword: " + password);
+    }
+    public void DisplayAll(){
+        
     }
 
     //mutators
@@ -87,6 +127,9 @@ public class sequential {
         seq1.Store();
         seq2.Store();
         seq3.Store();*/
+
+        sequential s= new sequential();
+        s.Retrieve();
     }
 
 
