@@ -33,10 +33,11 @@ public class sequential {
 
     public void Store(){
         try {
-            FileWriter userFile =  new FileWriter("User.txt",true);
-            String fileItem = userName + "\t" + userId + "\t  " + password + " \n";
-            userFile.write(fileItem);
-            userFile.close();
+            //creates "user.txt" file using FileWriter
+            FileWriter userFile =  new FileWriter("User.txt",true); //creates file and appends:True means new data will append to existing data
+            String fileItem = userName + "\t" + userId + "\t  " + password + " \n"; // creates a string of the data together
+            userFile.write(fileItem); //write data stored in the string to the file
+            userFile.close(); //close the file
     
          System.out.println("User saved successfully");
         
