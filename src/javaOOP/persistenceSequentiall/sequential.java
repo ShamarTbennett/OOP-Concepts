@@ -87,14 +87,41 @@ public class sequential {
         }
     }
 
+    
     public void DislayUser(){
         System.out.println("User Name: " + userName +
                             "\nUser ID:  " + userId +
                             "\nPassword: " + password);
     }
+
     public void DisplayAll(){
-        
+        Scanner inFileStream = null;
+        try{
+            
+            inFileStream = new Scanner(new File("user.txt"));
+            System.out.println("Name \t ID \t Password ");
+            System.out.println("-------------------------------");
+
+            while(inFileStream.hasNext()){ //check each line and pulls the different sections out tuntil it reaches the end of teh file
+                this.userName = inFileStream.next();
+                this.userId = inFileStream.nextInt();
+                this.password = inFileStream.next(); 
+                System.out.println(toString());  
+            }
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("File could not be found: " + e.getMessage());
+            //e.printStackTrace();
+        }catch ( Exception e) {
+            //System.out.println("File could not be found: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
+    
+    public String toString(){
+        return userName + "\t" + userId + "\t" + password;
+    }
+
 
     //mutators
     public void setUserName(String name){
@@ -129,7 +156,8 @@ public class sequential {
         seq3.Store();*/
 
         sequential s= new sequential();
-        s.Retrieve();
+        //s.Retrieve();
+        s.DisplayAll();
     }
 
 
