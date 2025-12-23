@@ -34,7 +34,6 @@ public class sequential {
         this.userName = s.password;
     }
 
-
     public void Store(){
         try {
             //creates "user.txt" file using FileWriter
@@ -50,7 +49,6 @@ public class sequential {
             e.printStackTrace();
         }
     }
-
 
     public void Retrieve(){
         String name;
@@ -87,7 +85,6 @@ public class sequential {
         }
     }
 
-    
     public void DislayUser(){
         System.out.println("User Name: " + userName +
                             "\nUser ID:  " + userId +
