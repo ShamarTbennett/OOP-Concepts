@@ -122,12 +122,71 @@ public class StockItemLab {
         }
     }
 
+    public double RetrievePrice(){
+        int searchNum;
+        try {
+            Scanner inFileStream = new Scanner(new File("StockItem.txt"));
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter the Stock item part number:--> ");
+            searchNum = input.nextInt();
+
+            while(inFileStream.hasNext()){
+                this.partNumber = inFileStream.nextInt();
+                this.description = inFileStream.next();
+                this.price = inFileStream.nextDouble();
+
+                if(partNumber == searchNum){
+                    return price;
+                }
+            }
+            System.out.println("Stock item " + partNumber + "was not found");
+            //inFileStream.close();
+            //input.close();
+        } catch (InputMismatchException e) {
+            e.getMessage();
+        }catch (FileNotFoundException e) {
+            e.getMessage();
+        }catch (Exception e) {
+            e.getMessage();
+        }
+        return -1.0;
+    }
+
+    public String RetrieveDescription(){
+        int searchNum;
+        try {
+            Scanner inFileStream = new Scanner(new File("StockItem.txt"));
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter the Stock item part number:--> ");
+            searchNum = input.nextInt();
+
+            while(inFileStream.hasNext()){
+                this.partNumber = inFileStream.nextInt();
+                this.description = inFileStream.next();
+                this.price = inFileStream.nextDouble();
+
+                if(partNumber == searchNum){
+                    return description;
+                }
+            }
+            System.out.println("Stock item " + partNumber + "was not found");
+            //inFileStream.close();
+            //input.close();
+        } catch (InputMismatchException e) {
+            e.getMessage();
+        }catch (FileNotFoundException e) {
+            e.getMessage();
+        }catch (Exception e) {
+            e.getMessage();
+        }
+        return "-1.0";
+    }
+
+
 
     public String toString(){
         return partNumber + "\t" + description + "\t" + price;
     }
-
-
     //Mutators
     public void setPartNumber(int partNumber){
         this.partNumber = partNumber;
