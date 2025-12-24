@@ -246,8 +246,6 @@ public class StockItemLab {
         return "-1.0";
     }
 
-
-
     public String toString(){
         return partNumber + "\t        " + description + "\t    " + price;
     }
@@ -276,19 +274,55 @@ public class StockItemLab {
 
     public static void main(String[] args) {
         StockItemLab e = new StockItemLab();
-        e.GetStockItemFromUser();
-        e.SaveStockItem();
-        //e.RetrieveStockItem();
-        //e.DisplayAll();
-
-        /*Double price = e.RetrievePrice();
-        if (!price.equals(-1.0)) {
-            System.out.println("The price for the stock item is: " + price);
-        }
         
-        String description =e.RetrieveDescription();
-        if (!description.equals("-1.0")) {
-            System.out.println("The decription for the stock item is: " + description);
-        }*/
+        System.out.println("\t\t\tWelcome to Stock Item menu");
+        System.out.println("\t-----------------------------------------------------");
+
+        Scanner input = new Scanner(System.in);
+        int choice;
+
+        while (true) {
+            System.out.println("\n1--Save an item to the file");
+            System.out.println("2--Retrieve a stock item information.");
+            System.out.println("3--Retrieve the price for a specific stock item");
+            System.out.println("4--Retrieve the description for a specific stock item");
+            System.out.println("5--Display all the stock items in the file");
+            System.out.println("6--Exit");
+
+            System.out.print("Enter your choice: ");
+            choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    e.GetStockItemFromUser();
+                    e.SaveStockItem();
+                    break;
+                case 2:
+                    e.RetrieveStockItem();
+                    break;
+                case 3:
+                    Double price = e.RetrievePrice();
+                    if (!price.equals(-1.0)) {
+                        System.out.println("The price for the stock item is: " + price);
+                    }
+                    break;
+                case 4:
+                    String description = e.RetrieveDescription();
+                    if (!description.equals("-1.0")) {
+                        System.out.println("The description for the stock item is: " + description);
+                    }
+                    break;
+                case 5:
+                    e.DisplayAll();
+                    break;
+                case 6:
+                    System.out.println("Exiting... Thank you!");
+                    input.close();
+                    return; // or use System.exit(0); depending on your program structure
+                default:
+                    System.out.println("Invalid input. Please enter a number between 1 and 6.");
+                    break;
+            }
+        }
     }
 }
