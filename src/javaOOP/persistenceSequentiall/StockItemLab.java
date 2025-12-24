@@ -31,12 +31,27 @@ public class StockItemLab {
                             "\nPrice: " + price
         );
     }
-
+/* 
     public void GetStockItemFromUser(){
         try {
             Scanner input = new Scanner(System.in);
-            System.out.println("Enter part number : ");
-            partNumber = input.nextInt();
+
+            try {
+                System.out.println("Enter part number : ");
+                partNumber = input.nextInt();
+                
+            } catch(InputMismatchException e){
+                System.out.println("Inavlid input type \nInput must be a interger (1, 2, 3...)");
+                System.out.println();
+                System.out.println("Enter part number : ");
+                partNumber = 0;
+                input= null;
+                if(input == null){
+                    input = new Scanner(System.in);
+                    partNumber = input.nextInt();
+                }
+                
+            }
 
             Scanner input1 = new Scanner(System.in);
             System.out.println("Enter description" );
@@ -47,10 +62,55 @@ public class StockItemLab {
             price = input2.nextDouble();
 
             //input.close();
-        } catch(InputMismatchException e){
-            System.out.println("Inavlid input type");
         }catch (Exception e) {
             e.printStackTrace();
+        }
+    }*/
+
+    public void GetStockItemFromUser(){
+
+        Scanner input = new Scanner(System.in);
+        
+        try {
+            // Get part number with retry logic
+            while(true) {
+                try {
+                    System.out.println("Enter part number: ");
+                    partNumber = input.nextInt();
+                    break; // Exit loop if successful
+                } catch(InputMismatchException e) {
+                    System.out.println("Invalid input type");
+                    System.out.println("Input must be an integer (1, 2, 3...)");
+                    System.out.println();
+                    input.nextLine(); // Clear the invalid input from buffer
+                }
+            }
+            
+            // Clear the newline left by nextInt()
+            input.nextLine();
+            
+            // Get description
+            System.out.println("Enter description: ");
+            description = input.nextLine();
+            
+            // Get price with retry logic
+            while(true) {
+                try {
+                    System.out.println("Enter price: ");
+                    price = input.nextDouble();
+                    break; // Exit loop if successful
+                } catch(InputMismatchException e) {
+                    System.out.println("Invalid input type");
+                    System.out.println("Input must be a double (50.01, 60.01)");
+                    System.out.println();
+                    input.nextLine(); // Clear the invalid input from buffer
+                }
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            input.close();
         }
     }
 
@@ -216,14 +276,19 @@ public class StockItemLab {
 
     public static void main(String[] args) {
         StockItemLab e = new StockItemLab();
-        //e.GetStockItemFromUser();
-        //e.SaveStockItem();
+        e.GetStockItemFromUser();
+        e.SaveStockItem();
         //e.RetrieveStockItem();
         //e.DisplayAll();
 
-        //###needs to be looked at
-        //e.RetrievePrice();
-        //e.RetrieveDescription();
-
+        /*Double price = e.RetrievePrice();
+        if (!price.equals(-1.0)) {
+            System.out.println("The price for the stock item is: " + price);
+        }
+        
+        String description =e.RetrieveDescription();
+        if (!description.equals("-1.0")) {
+            System.out.println("The decription for the stock item is: " + description);
+        }*/
     }
 }
