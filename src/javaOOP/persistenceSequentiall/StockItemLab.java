@@ -35,14 +35,18 @@ public class StockItemLab {
     public void GetStockItemFromUser(){
         try {
             Scanner input = new Scanner(System.in);
-            System.out.println();
+            System.out.println("Enter part number : ");
             partNumber = input.nextInt();
-            System.out.println();
-            description = input.nextLine();
-            System.out.println();
-            price = input.nextDouble();
 
-            input.close();
+            Scanner input1 = new Scanner(System.in);
+            System.out.println("Enter description" );
+            description = input1.nextLine();
+
+            Scanner input2 = new Scanner(System.in);
+            System.out.println("Enter price: ");
+            price = input2.nextDouble();
+
+            //input.close();
         } catch(InputMismatchException e){
             System.out.println("Inavlid input type");
         }catch (Exception e) {
@@ -103,8 +107,8 @@ public class StockItemLab {
             Scanner inFileStream = new Scanner(new File("StockItem.txt"));
             Scanner input = new Scanner(System.in);
 
-            System.out.println("Part Number \t Description \t Price ");
-            System.out.println("-------------------------------");
+            System.out.println("PartNumber\tDescription \t    Price ");
+            System.out.println("----------      ---------------     ------");
 
 
             while(inFileStream.hasNext()){
@@ -185,7 +189,7 @@ public class StockItemLab {
 
 
     public String toString(){
-        return partNumber + "\t" + description + "\t" + price;
+        return partNumber + "\t        " + description + "\t    " + price;
     }
     //Mutators
     public void setPartNumber(int partNumber){
@@ -207,5 +211,19 @@ public class StockItemLab {
     }
     public double getPrice(){
         return price;
+    }
+  
+
+    public static void main(String[] args) {
+        StockItemLab e = new StockItemLab();
+        //e.GetStockItemFromUser();
+        //e.SaveStockItem();
+        //e.RetrieveStockItem();
+        //e.DisplayAll();
+
+        //###needs to be looked at
+        //e.RetrievePrice();
+        //e.RetrieveDescription();
+
     }
 }
