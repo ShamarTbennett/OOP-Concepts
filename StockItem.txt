@@ -3,5 +3,4 @@
 2300	PealJewelCase	37.84
 3000	ReadPerfumeBox	43.21
 4000	RedVelvet	60.35
-0	white	0.1
 5000	Spagetti	13.5
