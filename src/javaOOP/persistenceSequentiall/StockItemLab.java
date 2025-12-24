@@ -1,6 +1,7 @@
 package javaOOP.persistenceSequentiall;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -61,6 +62,71 @@ public class StockItemLab {
             System.out.println("could not save item to file");
         }
     }
+
+    public void  RetrieveStockItem(){
+        int searchNum;
+        try {
+            Scanner inFileStream = new Scanner(new File("StockItem.txt"));
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter the Stock item part number:--> ");
+            searchNum = input.nextInt();
+
+            while(inFileStream.hasNext()){
+                this.partNumber = inFileStream.nextInt();
+                this.description = inFileStream.next();
+                this.price = inFileStream.nextDouble();
+
+                if(partNumber == searchNum){
+                    DisplayStockItem();
+                    return;
+                }
+            }
+            System.out.println("Stock item " + partNumber + "was not found");
+            this.partNumber = 0;
+            this.description = ".....";
+            this.price = 0.1;
+
+            //inFileStream.close();
+            //input.close();
+        } catch (InputMismatchException e) {
+            e.getMessage();
+        }catch (FileNotFoundException e) {
+            e.getMessage();
+        }catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+    public void DisplayAll(){
+        
+        try {
+            Scanner inFileStream = new Scanner(new File("StockItem.txt"));
+            Scanner input = new Scanner(System.in);
+
+            System.out.println("Part Number \t Description \t Price ");
+            System.out.println("-------------------------------");
+
+
+            while(inFileStream.hasNext()){
+                this.partNumber = inFileStream.nextInt();
+                this.description = inFileStream.next();
+                this.price = inFileStream.nextDouble();
+
+                System.out.println(toString());
+               
+            }
+        }catch (FileNotFoundException e) {
+            e.getMessage();
+        }catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+
+    public String toString(){
+        return partNumber + "\t" + description + "\t" + price;
+    }
+
 
     //Mutators
     public void setPartNumber(int partNumber){
