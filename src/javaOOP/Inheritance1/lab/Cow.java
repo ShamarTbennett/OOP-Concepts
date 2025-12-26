@@ -1,11 +1,11 @@
-package javaOOP.Inheritance1;
+package javaOOP.Inheritance1.lab;
 
 public class Cow  extends Animal {
     private float MilkProduced;
     //primary constructor
     //expects initial value for MilkProduced attribute which is in this class
     //plus the age attribute which is in the parent class
-    Cow(float  MP, float Ag)
+    public Cow(float  MP, float Ag)
     {
         MilkProduced = MP;
         age = Ag;

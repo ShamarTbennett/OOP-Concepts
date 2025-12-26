@@ -1,4 +1,4 @@
-package javaOOP.Inheritance1;
+package javaOOP.Inheritance1.lab;
 
 public class Bird  extends Animal {
     

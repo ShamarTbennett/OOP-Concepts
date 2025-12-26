@@ -1,4 +1,4 @@
-package javaOOP.Inheritance1;
+package javaOOP.Inheritance1.lab;
 
 public class Driver {
     public static void main(String[] args) {
@@ -26,5 +26,10 @@ public class Driver {
     C.Walk();
     //Invoke its eat method
     C.Display();
+
+    Shark s = new Shark(60, 08.5f);
+    s.Eat();
+    s.Swim();
+    s.Display();
     }
 }
