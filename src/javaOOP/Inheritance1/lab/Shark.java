@@ -4,6 +4,11 @@ public class Shark extends Animal {
     
     private int numberOfTeeth;
 
+    public Shark(){
+        this.numberOfTeeth = 0;
+        System.out.println("This shark has 00 teeth");
+    }
+
     public Shark(int numberOfTeeth, float age){
         this.numberOfTeeth = numberOfTeeth;
         this.age = age;
