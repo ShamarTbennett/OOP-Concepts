@@ -1,6 +1,5 @@
 package javaOOP.Inheritance1.tutorial;
 
-import javaOOP.ExceptionHandling.process;
 
 public class Kappa extends Alpha{
     

@@ -13,10 +13,10 @@ public class Betta extends Alpha{
     }
 
     public void H(){
-        System.out.println(" We are in betta");
+        System.out.println("We are in betta");
     }
 
     public void Show(){
-        System.out.println("A: " + A + "\nB: " + B +  "\nC: " + C + "\nD: "+ D);
+        System.out.println("A: " + A + "\nB: " + B +  "\nC: " + C + "\nD: "+ D + "\n");
     }
 }
