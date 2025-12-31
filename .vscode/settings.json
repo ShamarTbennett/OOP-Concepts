@@ -7,5 +7,9 @@
   "editor.cursorBlinking": "solid",
   "editor.cursorWidth": 0,
   "editor.cursorHeight": 0,
-  "terminal.integrated.cursorBlinking": false
+  "terminal.integrated.cursorBlinking": false,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "java.debug.settings.onBuildFailureProceed": true
 }
